@@ -39,8 +39,7 @@ export default function ApprovalsPage() {
   });
   const [editSaving, setEditSaving] = useState(false);
 
-  // ── Data loaders ──────────────────────────────────────────────────────────
-
+  // ----------------------------------------
   const fetchPending = useCallback(async (query?: string, filter?: 'PENDING' | 'ALL') => {
     const sb = supabaseRef.current;
     setLoading(true);
@@ -143,8 +142,7 @@ export default function ApprovalsPage() {
     }
   }
 
-  // ── Approve ───────────────────────────────────────────────────────────────
-
+  // ----------------------------------------
   async function handleApprove(requestId: string) {
     setActionLoading(requestId);
     const toastId = toast.loading('Approving payment…');
@@ -182,8 +180,7 @@ export default function ApprovalsPage() {
     }
   }
 
-  // ── Reject ────────────────────────────────────────────────────────────────
-
+  // ----------------------------------------
   async function handleReject() {
     if (!rejectModal || !rejectReason.trim()) {
       toast.error('Rejection reason is required');
@@ -218,8 +215,7 @@ export default function ApprovalsPage() {
     }
   }
 
-  // ── Render ────────────────────────────────────────────────────────────────
-
+  // ----------------------------------------
   return (
     <div className="min-h-screen page-bg">
       <NavBar role="admin" userName="TELEPOINT" />
